@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Oxford · Developer</title>
+<meta name="description" content="Young self-taught developer from the UK, building web apps and aiming for a Level 6 software engineering apprenticeship." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-elev: #121212;
+    --border: #1f1f1f;
+    --border-hover: #2a2a2a;
+    --text: #e5e5e5;
+    --text-dim: #888;
+    --text-faint: #555;
+    --accent: #00ff88;
+    --accent-dim: rgba(0, 255, 136, 0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  a:hover { opacity: 0.7; }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  nav .logo {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+  }
+  nav ul a {
+    color: var(--text-dim);
+  }
+  nav ul a:hover { color: var(--text); opacity: 1; }
+
+  /* HERO */
+  .hero {
+    padding: 100px 0 80px;
+  }
+  .hero .prompt {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .tagline {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    margin-bottom: 32px;
+    max-width: 540px;
+  }
+  .hero-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+  }
+  .hero-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-links a::before { content: './'; color: var(--text-faint); }
+
+  /* SECTIONS */
+  section.content {
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 80px;
+  }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .section-title::before {
+    content: '# ';
+    color: var(--text-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+  }
+
+  /* ABOUT */
+  .about p {
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+  .about p:last-child { margin-bottom: 0; }
+  .about strong { color: var(--text); font-weight: 500; }
+
+  /* PROJECTS */
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .project {
+    display: block;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.2s;
+    color: var(--text);
+  }
+  .project:last-child { border-bottom: none; }
+  .project:hover {
+    padding-left: 12px;
+    opacity: 1;
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .project-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+  .project-name::before {
+    content: '→ ';
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .project-tech {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+  }
+  .project p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* SKILLS */
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+  }
+  .skill-group h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-faint);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .skill-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .skill-group li {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+  .skill-group li::before {
+    content: '• ';
+    color: var(--accent);
+  }
+
+  /* CONTACT */
+  .contact p {
+    color: var(--text-dim);
+    margin-bottom: 24px;
+    max-width: 540px;
+  }
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+  }
+  .contact-list a {
+    display: inline-flex;
+    gap: 12px;
+    color: var(--text);
+  }
+  .contact-list .label {
+    color: var(--text-faint);
+    min-width: 90px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  /* FADE IN */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* CURSOR */
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+  }
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  @media (max-width: 600px) {
+    nav ul { gap: 16px; }
+    .hero { padding: 60px 0 40px; }
+    section.content { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <span class="logo">~/oxford</span>
+    <ul>
+      <li><a href="#about">about</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="prompt">$ whoami<span class="cursor"></span></div>
+    <h1>Oxford. Young developer from the <span class="accent">UK</span>.</h1>
+    <p class="tagline">Self-taught, building web apps, learning out loud. Heading toward a Level 6 software engineering apprenticeship — and something of my own after that.</p>
+    <div class="hero-links">
+      <a href="#projects">projects</a>
+      <a href="https://github.com/Developer-Coder1" target="_blank" rel="noopener">github</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="content">
+  <div class="container about reveal">
+    <div class="section-label">01</div>
+    <h2 class="section-title">about</h2>
+    <p>I'm <strong>14</strong>, based in the UK, and I started coding because I wanted to understand how the sites and apps I use every day actually work. Turns out — building them is more fun than using them.</p>
+    <p>Right now I'm working through <strong>JavaScript and React</strong>, learning how to wire up real APIs, and building small projects end-to-end so I can see what production actually feels like.</p>
+    <p>The plan: A-levels in <strong>Computer Science, Maths, and Business</strong> → <strong>Level 6 degree apprenticeship</strong> in software engineering → years of real industry experience → one day, starting my own company.</p>
+    <p>No uni. No debt. Just learning, shipping, and getting better every week.</p>
+  </div>
+</section>
+
+<section id="projects" class="content">
+  <div class="container reveal">
+    <div class="section-label">02</div>
+    <h2 class="section-title">projects</h2>
+    <div class="projects">
+
+      <a class="project" href="https://github.com/Developer-Coder1/Movie-Search-App" target="_blank" rel="noopener">
+        <div class="project-header">
+          <span class="project-name">Movie Search App</span>
+          <span class="project-tech">JavaScript · CSS · API</span>
+        </div>
+        <p>Search any film by title and get posters, plot, and ratings back from a live movie API. Handling async requests, loading states, and missing data.</p>
+      </a>
+
+      <a class="project" href="https://github.com/Developer-Coder1/Weather-forecast-project" target="_blank" rel="noopener">
+        <div class="project-header">
+          <span class="project-name">Weather Forecast</span>
+          <span class="project-tech">JavaScript · CSS · API</span>
+        </div>
+        <p>Live weather and forecasts for any city. Practising real API integration — fetch, parse JSON, handle errors when the city doesn't exist.</p>
+      </a>
+
+      <a class="project" href="https://github.com/Developer-Coder1/Recipe-App" target="_blank" rel="noopener">
+        <div class="project-header">
+          <span class="project-name">Recipe App</span>
+          <span class="project-tech">JavaScript · CSS</span>
+        </div>
+        <p>Browse recipes with images, ingredients, and instructions. Practising component-based UI and rendering dynamic data.</p>
+      </a>
+
+      <a class="project" href="https://github.com/Developer-Coder1/Youtube-clone" target="_blank" rel="noopener">
+        <div class="project-header">
+          <span class="project-name">YouTube Clone</span>
+          <span class="project-tech">HTML · CSS</span>
+        </div>
+        <p>A pixel-level recreation of YouTube's homepage UI. Built entirely by hand in HTML and CSS to lock in Flexbox, Grid, and positioning fundamentals.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="content">
+  <div class="container reveal">
+    <div class="section-label">03</div>
+    <h2 class="section-title">skills</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h3>// languages</h3>
+        <ul>
+          <li>JavaScript</li>
+          <li>HTML5</li>
+          <li>CSS3</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>// learning</h3>
+        <ul>
+          <li>React</li>
+          <li>REST APIs</li>
+          <li>Responsive design</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>// tools</h3>
+        <ul>
+          <li>Git &amp; GitHub</li>
+          <li>VS Code</li>
+          <li>npm / Node.js</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>// up next</h3>
+        <ul>
+          <li>TypeScript</li>
+          <li>Testing</li>
+          <li>Backend basics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="content">
+  <div class="container contact reveal">
+    <div class="section-label">04</div>
+    <h2 class="section-title">contact</h2>
+    <p>Open to freelance work (via my guardian), apprenticeship conversations, or just hearing from other devs. Drop me a line.</p>
+    <div class="contact-list">
+      <a href="mailto:developercoder1@gmail.com">
+        <span class="label">email</span><span>developercoder1@gmail.com</span>
+      </a>
+      <a href="https://github.com/Developer-Coder1" target="_blank" rel="noopener">
+        <span class="label">github</span><span>github.com/Developer-Coder1</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>built by hand · no frameworks · deployed on github pages</p>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
