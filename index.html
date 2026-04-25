@@ -223,6 +223,99 @@
     content: '• ';
     color: var(--accent);
   }
+  /* PRICING */
+  .pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .tier {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    background: var(--bg-elev);
+    transition: border-color 0.2s;
+  }
+  .tier:hover { border-color: var(--border-hover); }
+  .tier.featured { border-color: var(--accent); }
+  .tier-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .tier-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .tier-name::before {
+    content: '$ ';
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tier-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
+  .tier-price {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .tier-sub {
+    color: var(--text-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+  .tier ul {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .tier ul li {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    padding: 4px 0;
+  }
+  .tier ul li::before {
+    content: '✓ ';
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    margin-right: 4px;
+  }
+  .tier-cta {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .tier-cta:hover {
+    background: var(--accent);
+    color: var(--bg);
+    opacity: 1;
+  }
+  .tier-cta::before { content: './'; color: inherit; opacity: 0.6; }
+  .pricing-note {
+    color: var(--text-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin-top: 16px;
+    line-height: 1.7;
+  }
   /* CONTACT */
   .contact p {
     color: var(--text-dim);
@@ -279,9 +372,10 @@
     50%, 100% { opacity: 0; }
   }
   @media (max-width: 600px) {
-    nav ul { gap: 16px; }
+    nav ul { gap: 14px; }
     .hero { padding: 60px 0 40px; }
     section.content { padding: 48px 0; }
+    .tier { padding: 20px; }
   }
 </style>
 </head>
@@ -292,7 +386,7 @@
     <ul>
       <li><a href="#about">about</a></li>
       <li><a href="#projects">projects</a></li>
-      <li><a href="#skills">skills</a></li>
+      <li><a href="#hire">hire me</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
   </div>
@@ -305,6 +399,7 @@
     <div class="hero-links">
       <a href="#projects">projects</a>
       <a href="https://github.com/Developer-Coder1" target="_blank" rel="noopener">github</a>
+      <a href="#hire">Hire me</a>
       <a href="#contact">contact</a>
     </div>
   </div>
@@ -362,9 +457,71 @@
     </div>
   </div>
 </section>
-<section id="skills" class="content">
+<section id="hire" class="content">
   <div class="container reveal">
     <div class="section-label">03</div>
+    <h2 class="section-title">hire me</h2>
+    <p style="color: var(--text-dim); margin-bottom: 28px;">Affordable websites for small businesses. Custom-built, mobile-friendly, hosted and maintained by me. Live example: <a href="https://www.multistreamglobetakers.com/" target="_blank">multistreamglobetakers.com</a>.</p>
+
+    <div class="pricing">
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Starter</span>
+          <span class="tier-price">£110</span>
+        </div>
+        <div class="tier-sub">// one-off · or £25/mo hosted &amp; maintained</div>
+        <ul>
+          <li>1-page custom website</li>
+          <li>Mobile-friendly design</li>
+          <li>WhatsApp order button</li>
+          <li>1 small change /month</li>
+        </ul>
+        <a class="tier-cta" href="mailto:mbadiwechimemena@gmail.com?subject=Starter%20Package%20Enquiry&body=Hi%20Oxford%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Starter%20package.">enquire — starter</a>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-head">
+          <span class="tier-name">Business<span class="tier-tag">most popular</span></span>
+          <span class="tier-price">£220</span>
+        </div>
+        <div class="tier-sub">// one-off · or £25/mo hosted &amp; maintained</div>
+        <ul>
+          <li>Multi-section custom site</li>
+          <li>Mobile-friendly design</li>
+          <li>WhatsApp ordering integration</li>
+          <li>Built-in chat widget (Q&amp;A)</li>
+          <li>2-3 small changes /month</li>
+        </ul>
+        <a class="tier-cta" href="mailto:mbadiwechimemena@gmail.com?subject=Business%20Package%20Enquiry&body=Hi%20Oxford%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Business%20package.">enquire — business</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Premium</span>
+          <span class="tier-price">£325</span>
+        </div>
+        <div class="tier-sub">// one-off · or £25/mo hosted &amp; maintained</div>
+        <ul>
+          <li>Everything in Business</li>
+          <li>Product gallery / portfolio</li>
+          <li>SEO basics setup</li>
+          <li>Logo polish included</li>
+          <li>Unlimited small changes</li>
+        </ul>
+        <a class="tier-cta" href="mailto:mbadiwechimemena@gmail.com?subject=Premium%20Package%20Enquiry&body=Hi%20Oxford%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Premium%20package.">enquire — premium</a>
+      </div>
+
+    </div>
+
+    <div class="pricing-note">
+      // 50% upfront · delivered in 1-2 weeks · domain ~£12/yr (paid separately)
+    </div>
+  </div>
+</section>
+<section id="skills" class="content">
+  <div class="container reveal">
+    <div class="section-label">04</div>
     <h2 class="section-title">skills</h2>
     <div class="skills">
       <div class="skill-group">
@@ -404,7 +561,7 @@
 </section>
 <section id="contact" class="content">
   <div class="container contact reveal">
-    <div class="section-label">04</div>
+    <div class="section-label">05</div>
     <h2 class="section-title">contact</h2>
     <p>Open to freelance work (via my guardian), apprenticeship conversations, or just hearing from other devs. Drop me a line.</p>
     <div class="contact-list">
