@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +20,8 @@
     --accent: #00ff88;
     --accent-dim: rgba(0, 255, 136, 0.1);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'Inter', -apple-system, sans-serif;
     background: var(--bg);
@@ -34,22 +30,18 @@
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
-
   .mono { font-family: 'JetBrains Mono', monospace; }
-
   a {
     color: var(--accent);
     text-decoration: none;
     transition: opacity 0.15s;
   }
   a:hover { opacity: 0.7; }
-
   .container {
     max-width: 720px;
     margin: 0 auto;
     padding: 0 24px;
   }
-
   /* NAV */
   nav {
     padding: 24px 0;
@@ -80,7 +72,6 @@
     color: var(--text-dim);
   }
   nav ul a:hover { color: var(--text); opacity: 1; }
-
   /* HERO */
   .hero {
     padding: 100px 0 80px;
@@ -118,7 +109,6 @@
     gap: 6px;
   }
   .hero-links a::before { content: './'; color: var(--text-faint); }
-
   /* SECTIONS */
   section.content {
     padding: 60px 0;
@@ -143,7 +133,6 @@
     font-family: 'JetBrains Mono', monospace;
     font-weight: 400;
   }
-
   /* ABOUT */
   .about p {
     color: var(--text-dim);
@@ -151,7 +140,6 @@
   }
   .about p:last-child { margin-bottom: 0; }
   .about strong { color: var(--text); font-weight: 500; }
-
   /* PROJECTS */
   .projects {
     display: flex;
@@ -187,6 +175,17 @@
     color: var(--accent);
     font-family: 'JetBrains Mono', monospace;
   }
+  .project-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
   .project-tech {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
@@ -197,7 +196,6 @@
     font-size: 0.95rem;
     margin: 0;
   }
-
   /* SKILLS */
   .skills {
     display: grid;
@@ -225,7 +223,6 @@
     content: '• ';
     color: var(--accent);
   }
-
   /* CONTACT */
   .contact p {
     color: var(--text-dim);
@@ -248,7 +245,6 @@
     color: var(--text-faint);
     min-width: 90px;
   }
-
   /* FOOTER */
   footer {
     padding: 40px 0 60px;
@@ -258,7 +254,6 @@
     color: var(--text-faint);
     text-align: center;
   }
-
   /* FADE IN */
   .reveal {
     opacity: 0;
@@ -269,7 +264,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-
   /* CURSOR */
   .cursor {
     display: inline-block;
@@ -284,7 +278,6 @@
     0%, 49% { opacity: 1; }
     50%, 100% { opacity: 0; }
   }
-
   @media (max-width: 600px) {
     nav ul { gap: 16px; }
     .hero { padding: 60px 0 40px; }
@@ -293,7 +286,6 @@
 </style>
 </head>
 <body>
-
 <nav>
   <div class="container">
     <span class="logo">~/oxford</span>
@@ -305,7 +297,6 @@
     </ul>
   </div>
 </nav>
-
 <header class="hero">
   <div class="container">
     <div class="prompt">$ whoami<span class="cursor"></span></div>
@@ -318,7 +309,6 @@
     </div>
   </div>
 </header>
-
 <section id="about" class="content">
   <div class="container about reveal">
     <div class="section-label">01</div>
@@ -329,36 +319,39 @@
     <p>No uni. No debt. Just learning, shipping, and getting better every week.</p>
   </div>
 </section>
-
 <section id="projects" class="content">
   <div class="container reveal">
     <div class="section-label">02</div>
     <h2 class="section-title">projects</h2>
     <div class="projects">
-
-<a class="project" href="https://movie-search-app-one-flax.vercel.app" target="_blank" rel="noopener">
+      <a class="project" href="https://www.multistreamglobetakers.com/" target="_blank" rel="noopener">
+        <div class="project-header">
+          <span class="project-name">Globetakers Multistream<span class="project-badge">live client</span></span>
+          <span class="project-tech">HTML · CSS · JavaScript</span>
+        </div>
+        <p>A real business website I built for my mom's Multistream distributorship. Pre-filled WhatsApp ordering, mobile-first design, and zero friction from interest to order. My first project used by real customers every day.</p>
+      </a>
+      <a class="project" href="https://movie-search-app-one-flax.vercel.app" target="_blank" rel="noopener">
         <div class="project-header">
           <span class="project-name">Movie Search App</span>
           <span class="project-tech">JavaScript · CSS · API</span>
         </div>
         <p>Search any film by title and get posters, plot, and ratings back from a live movie API. Handling async requests, loading states, and missing data.</p>
       </a>
-
-   <a class="project" href="https://weather-forecast-project-zeta.vercel.app" target="_blank" rel="noopener">
+      <a class="project" href="https://weather-forecast-project-zeta.vercel.app" target="_blank" rel="noopener">
         <div class="project-header">
           <span class="project-name">Weather Forecast</span>
           <span class="project-tech">JavaScript · CSS · API</span>
         </div>
         <p>Live weather and forecasts for any city. Practising real API integration — fetch, parse JSON, handle errors when the city doesn't exist.</p>
       </a>
-
-  <a class="project" href="https://recipe-app-phi-seven-26.vercel.app" target="_blank" rel="noopener">
+      <a class="project" href="https://recipe-app-phi-seven-26.vercel.app" target="_blank" rel="noopener">
+        <div class="project-header">
           <span class="project-name">Recipe App</span>
           <span class="project-tech">JavaScript · CSS</span>
         </div>
         <p>Browse recipes with images, ingredients, and instructions. Practising component-based UI and rendering dynamic data.</p>
       </a>
-
       <a class="project" href="https://youtube-clone-phi-eight-50.vercel.app" target="_blank" rel="noopener">
         <div class="project-header">
           <span class="project-name">YouTube Clone</span>
@@ -366,11 +359,9 @@
         </div>
         <p>A pixel-level recreation of YouTube's homepage UI. Built entirely by hand in HTML and CSS to lock in Flexbox, Grid, and positioning fundamentals.</p>
       </a>
-
     </div>
   </div>
 </section>
-
 <section id="skills" class="content">
   <div class="container reveal">
     <div class="section-label">03</div>
@@ -411,15 +402,14 @@
     </div>
   </div>
 </section>
-
 <section id="contact" class="content">
   <div class="container contact reveal">
     <div class="section-label">04</div>
     <h2 class="section-title">contact</h2>
     <p>Open to freelance work (via my guardian), apprenticeship conversations, or just hearing from other devs. Drop me a line.</p>
     <div class="contact-list">
-      <a href="mailto:developercoder1@gmail.com">
-        <span class="label">email</span><span>developercoder1@gmail.com</span>
+      <a href="mailto:mbadiwechimemena@gmail.com">
+        <span class="label">email</span><span>mbadiwechimemena@gmail.com</span>
       </a>
       <a href="https://github.com/Developer-Coder1" target="_blank" rel="noopener">
         <span class="label">github</span><span>github.com/Developer-Coder1</span>
@@ -427,19 +417,16 @@
     </div>
   </div>
 </section>
-
 <footer>
   <div class="container">
     <p>built by hand · no frameworks · deployed on github pages</p>
   </div>
 </footer>
-
 <script>
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
-
 </body>
 </html>
