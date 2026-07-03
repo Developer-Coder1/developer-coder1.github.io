@@ -63,32 +63,22 @@
   .feature { padding: 18px 0; border-bottom: 1px solid var(--border); }
   .feature:last-child { border-bottom: none; }
   .feature-name { font-weight: 600; font-size: 1.02rem; margin-bottom: 4px; }
-  .feature-name .emoji { margin-right: 8px; }
   .feature-name .pro-tag {
     display: inline-block; margin-left: 8px; padding: 2px 8px;
     background: var(--accent-dim); color: var(--accent);
     font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border-radius: 4px; vertical-align: middle;
   }
   .feature p { color: var(--text-dim); font-size: 0.95rem; }
-  .pricing { display: flex; flex-direction: column; gap: 16px; }
-  .tier { border: 1px solid var(--border); border-radius: 10px; padding: 24px; background: var(--bg-elev); transition: border-color 0.2s; }
-  .tier:hover { border-color: var(--border-hover); }
-  .tier.featured { border-color: var(--accent); }
-  .tier-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; gap: 12px; flex-wrap: wrap; }
-  .tier-name { font-size: 1.1rem; font-weight: 600; }
-  .tier-name::before { content: '$ '; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
-  .tier-price { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1rem; font-weight: 500; }
-  .tier ul { list-style: none; }
-  .tier ul li { color: var(--text-dim); font-size: 0.95rem; padding: 4px 0; }
-  .tier ul li::before { content: '✓ '; color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-right: 4px; }
-  footer { padding: 40px 0 60px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-faint); text-align: center; }
-  footer a { color: var(--text-faint); }
+
   @media (max-width: 600px) {
     nav ul { gap: 14px; }
     .hero { padding: 56px 0 40px; }
     section.content { padding: 44px 0; }
-    .tier { padding: 20px; }
-  }
+}
+  
+  .footer-text { font-family: 'JetBrains Mono', monospace; color: var(--accent); }
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-faint); text-align: center; }
+
 </style>
 </head>
 <body>
@@ -97,7 +87,6 @@
     <span class="logo">~/tekkytouch</span>
     <ul>
       <li><a href="#features">features</a></li>
-      <li><a href="#pricing">pricing</a></li>
       <li><a href="../../index.html">oxmena.com</a></li>
     </ul>
   </div>
@@ -122,60 +111,28 @@
     <h2 class="section-title">how it works</h2>
     <div class="features">
       <div class="feature">
-        <div class="feature-name"><span class="emoji">⚽</span>AI Drills</div>
+        <div class="feature-name">AI Drills</div>
         <p>Every drill is generated for your position and level, so you're always training something that actually matters to your game.</p>
       </div>
       <div class="feature">
-        <div class="feature-name"><span class="emoji">🏆</span>XP & Ranks</div>
+        <div class="feature-name">XP & Ranks</div>
         <p>Complete drills to earn XP and climb the ranks — Bronze, Silver, Gold, Platinum, Elite, Legend.</p>
       </div>
       <div class="feature">
-        <div class="feature-name"><span class="emoji">🔥</span>Streaks</div>
+        <div class="feature-name">Streaks</div>
         <p>Train daily to build your streak. Consistency is what actually improves your game.</p>
       </div>
       <div class="feature">
-        <div class="feature-name"><span class="emoji">📅</span>Weekly Training Plans<span class="pro-tag">pro</span></div>
+        <div class="feature-name">Weekly Training Plans<span class="pro-tag">pro</span></div>
         <p>A structured 7-day plan covering every skill area, with drills that unlock on the right day.</p>
       </div>
       <div class="feature">
-        <div class="feature-name"><span class="emoji">📜</span>Drill History<span class="pro-tag">pro</span></div>
+        <div class="feature-name">Drill History<span class="pro-tag">pro</span></div>
         <p>Look back on the last 30 days of drills you've completed, grouped by date.</p>
       </div>
       <div class="feature">
-        <div class="feature-name"><span class="emoji">🎯</span>Skill Focus<span class="pro-tag">pro</span></div>
+        <div class="feature-name">Skill Focus<span class="pro-tag">pro</span></div>
         <p>Lock in on one skill — Shooting, Dribbling, Passing, First Touch, Defending, or Free Kicks — for drills tailored to it.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="pricing" class="content">
-  <div class="container">
-    <div class="section-label">02</div>
-    <h2 class="section-title">pricing</h2>
-    <div class="pricing">
-      <div class="tier">
-        <div class="tier-head">
-          <span class="tier-name">Free</span>
-          <span class="tier-price">£0</span>
-        </div>
-        <ul>
-          <li>Daily AI-generated drills</li>
-          <li>XP, ranks & streaks</li>
-          <li>Leaderboard</li>
-        </ul>
-      </div>
-      <div class="tier featured">
-        <div class="tier-head">
-          <span class="tier-name">Pro</span>
-          <span class="tier-price">£2.99/mo or £19.99/yr</span>
-        </div>
-        <ul>
-          <li>Everything in Free</li>
-          <li>Weekly Training Plans</li>
-          <li>Drill History</li>
-          <li>Skill Focus</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -183,8 +140,7 @@
 
 <footer>
   <div class="container">
-    <p>a <a href="../../index.html">Oxmena</a> product · <a href="privacy.html">privacy policy</a></p>
-  </div>
+<p>a <a class="footer-text" href="../../index.html">Oxmena</a> product · <a class="footer-text" href="privacy.html">privacy policy</a></p>  </div>
 </footer>
 </body>
 </html>
