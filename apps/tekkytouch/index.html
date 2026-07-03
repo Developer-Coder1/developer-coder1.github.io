@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TekkyTouch — AI Football Drills App | Oxmena</title>
+<link rel="icon" type="image/jpeg" href="../../Facebook-profile2.jpeg">
+<meta name="description" content="TekkyTouch: AI-generated football drills tailored to your position and level. Track XP, climb ranks, build streaks. Built by Oxmena." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-elev: #121212;
+    --border: #1f1f1f;
+    --border-hover: #2a2a2a;
+    --text: #e5e5e5;
+    --text-dim: #888;
+    --text-faint: #555;
+    --accent: #00ff88;
+    --accent-dim: rgba(0, 255, 136, 0.1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; transition: opacity 0.15s; }
+  a:hover { opacity: 0.7; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+  nav .container { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+  nav .logo { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-weight: 500; }
+  nav ul { list-style: none; display: flex; gap: 24px; }
+  nav ul a { color: var(--text-dim); }
+  nav ul a:hover { color: var(--text); opacity: 1; }
+  .hero { padding: 90px 0 60px; }
+  .hero .prompt { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .tagline { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 32px; max-width: 540px; }
+  .play-badge { display: inline-block; }
+  .play-badge img { height: 56px; }
+  .badge-note { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-faint); margin-top: 10px; }
+  section.content { padding: 56px 0; border-top: 1px solid var(--border); scroll-margin-top: 80px; }
+  .section-label { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.85rem; margin-bottom: 8px; }
+  .section-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; letter-spacing: -0.01em; }
+  .features { display: flex; flex-direction: column; gap: 4px; }
+  .feature { padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .feature:last-child { border-bottom: none; }
+  .feature-name { font-weight: 600; font-size: 1.02rem; margin-bottom: 4px; }
+  .feature-name .emoji { margin-right: 8px; }
+  .feature-name .pro-tag {
+    display: inline-block; margin-left: 8px; padding: 2px 8px;
+    background: var(--accent-dim); color: var(--accent);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border-radius: 4px; vertical-align: middle;
+  }
+  .feature p { color: var(--text-dim); font-size: 0.95rem; }
+  .pricing { display: flex; flex-direction: column; gap: 16px; }
+  .tier { border: 1px solid var(--border); border-radius: 10px; padding: 24px; background: var(--bg-elev); transition: border-color 0.2s; }
+  .tier:hover { border-color: var(--border-hover); }
+  .tier.featured { border-color: var(--accent); }
+  .tier-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; gap: 12px; flex-wrap: wrap; }
+  .tier-name { font-size: 1.1rem; font-weight: 600; }
+  .tier-name::before { content: '$ '; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+  .tier-price { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1rem; font-weight: 500; }
+  .tier ul { list-style: none; }
+  .tier ul li { color: var(--text-dim); font-size: 0.95rem; padding: 4px 0; }
+  .tier ul li::before { content: '✓ '; color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-right: 4px; }
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-faint); text-align: center; }
+  footer a { color: var(--text-faint); }
+  @media (max-width: 600px) {
+    nav ul { gap: 14px; }
+    .hero { padding: 56px 0 40px; }
+    section.content { padding: 44px 0; }
+    .tier { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <span class="logo">~/tekkytouch</span>
+    <ul>
+      <li><a href="#features">features</a></li>
+      <li><a href="#pricing">pricing</a></li>
+      <li><a href="../../index.html">oxmena.com</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="prompt">$ open tekkytouch</div>
+    <h1>Your <span class="accent">AI football coach</span>, in your pocket.</h1>
+    <p class="tagline">TekkyTouch generates football drills built around your position and level — then tracks your XP, ranks, and streaks as you improve. Built by Oxmena.</p>
+    <!-- TODO: replace href="#" with your Play Console closed-testing opt-in link -->
+    <a class="play-badge" href="#" target="_blank" rel="noopener">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+    </a>
+    <p class="badge-note">// currently in closed testing</p>
+  </div>
+</header>
+
+<section id="features" class="content">
+  <div class="container">
+    <div class="section-label">01</div>
+    <h2 class="section-title">how it works</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-name"><span class="emoji">⚽</span>AI Drills</div>
+        <p>Every drill is generated for your position and level, so you're always training something that actually matters to your game.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-name"><span class="emoji">🏆</span>XP & Ranks</div>
+        <p>Complete drills to earn XP and climb the ranks — Bronze, Silver, Gold, Platinum, Elite, Legend.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-name"><span class="emoji">🔥</span>Streaks</div>
+        <p>Train daily to build your streak. Consistency is what actually improves your game.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-name"><span class="emoji">📅</span>Weekly Training Plans<span class="pro-tag">pro</span></div>
+        <p>A structured 7-day plan covering every skill area, with drills that unlock on the right day.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-name"><span class="emoji">📜</span>Drill History<span class="pro-tag">pro</span></div>
+        <p>Look back on the last 30 days of drills you've completed, grouped by date.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-name"><span class="emoji">🎯</span>Skill Focus<span class="pro-tag">pro</span></div>
+        <p>Lock in on one skill — Shooting, Dribbling, Passing, First Touch, Defending, or Free Kicks — for drills tailored to it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="content">
+  <div class="container">
+    <div class="section-label">02</div>
+    <h2 class="section-title">pricing</h2>
+    <div class="pricing">
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Free</span>
+          <span class="tier-price">£0</span>
+        </div>
+        <ul>
+          <li>Daily AI-generated drills</li>
+          <li>XP, ranks & streaks</li>
+          <li>Leaderboard</li>
+        </ul>
+      </div>
+      <div class="tier featured">
+        <div class="tier-head">
+          <span class="tier-name">Pro</span>
+          <span class="tier-price">£2.99/mo or £19.99/yr</span>
+        </div>
+        <ul>
+          <li>Everything in Free</li>
+          <li>Weekly Training Plans</li>
+          <li>Drill History</li>
+          <li>Skill Focus</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>a <a href="../../index.html">Oxmena</a> product · <a href="privacy.html">privacy policy</a></p>
+  </div>
+</footer>
+</body>
+</html>
