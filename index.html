@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Website Design in Nigeria | Business Websites & Apps | Oxmena</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-947799968"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-947799968');
+</script>
+
+<title>Website Design in Nigeria | Business Websites &amp; Apps | Oxmena</title>
   <link rel="icon" type="image/jpeg" href="Facebook-profile2.jpeg">
 <meta name="description" content="Affordable custom websites and Android apps for Nigerian businesses and clients worldwide. Mobile-friendly, hosted and maintained by hand. Get a quote today." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,6 +120,29 @@
     gap: 6px;
   }
   .hero-links a::before { content: './'; color: var(--text-faint); }
+  /* WHATSAPP BUTTON */
+  .wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--bg);
+    background: var(--accent);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 28px;
+    transition: opacity 0.2s;
+  }
+  .wa-btn:hover { opacity: 0.85; }
+  .wa-btn svg { width: 18px; height: 18px; fill: currentColor; }
+  .wa-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    margin: -18px 0 28px;
+  }
   /* SECTIONS */
   section.content {
     padding: 60px 0;
@@ -395,6 +428,14 @@
     color: var(--text-faint);
     text-align: center;
   }
+  footer .footer-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    color: var(--accent);
+  }
+  footer .footer-wa svg { width: 15px; height: 15px; fill: currentColor; }
   /* FADE IN */
   .reveal {
     opacity: 0;
@@ -442,8 +483,17 @@
 <header class="hero">
   <div class="container">
     <div class="prompt">$ whoami<span class="cursor"></span></div>
-    <h1>Oxford — freelance <span class="accent">web & app developer</span>.</h1>
+    <h1>Oxford — freelance <span class="accent">web &amp; app developer</span>.</h1>
     <p class="tagline">Self-taught developer building websites and mobile apps for small businesses in Nigeria and worldwide. Clean code, smooth experience, built to last.</p>
+
+    <a class="wa-btn wa-cta"
+       href="https://wa.me/2348078143655?text=Hi%20Oxford%2C%20I%20saw%20oxmena.com%20and%20I%27d%20like%20a%20website%20for%20my%20business"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.02h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.25-4.35c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.2-8.25 8.2z"/></svg>
+      Message me on WhatsApp
+    </a>
+    <p class="wa-note">Replies usually same day · +234 807 814 3655</p>
+
     <div class="hero-links">
       <a href="#projects">projects</a>
       <a href="https://github.com/Developer-Coder1" target="_blank" rel="noopener">github</a>
@@ -541,7 +591,10 @@
      <div class="section-label">03</div>
     <h2 class="section-title">hire me</h2>
   <p style="color: var(--text-dim); margin-bottom: 28px;">Affordable custom websites and mobile apps for small businesses in Nigeria and worldwide. Mobile-friendly, hosted and maintained by me. Live example: <a href="https://www.multistreamglobetakers.com/" target="_blank">multistreamglobetakers.com</a>.</p>
-    <p style="color: var(--text-dim);">Message me to discuss your project and get a custom quote.</p>
+    <p style="color: var(--text-dim); margin-bottom: 20px;">Message me to discuss your project and get a custom quote.</p>
+    <a class="tier-cta wa-cta"
+       href="https://wa.me/2348078143655?text=Hi%20Oxford%2C%20I%20saw%20oxmena.com%20and%20I%27d%20like%20a%20quote%20for%20my%20business"
+       target="_blank" rel="noopener">get a quote on whatsapp</a>
   </div>
 </section>
   
@@ -588,6 +641,9 @@
     <h2 class="section-title">contact</h2>
     <p>Open to freelance work, apprenticeship conversations, or just hearing from other devs. Drop me a line.</p>
     <div class="contact-list">
+      <a class="wa-cta" href="https://wa.me/2348078143655?text=Hi%20Oxford%2C%20I%20saw%20oxmena.com" target="_blank" rel="noopener">
+        <span class="label">whatsapp</span><span>+234 807 814 3655</span>
+      </a>
       <a href="mailto:oxmenaservices@gmail.com">
         <span class="label">email</span><span>oxmenaservices@gmail.com</span>
       </a>
@@ -599,7 +655,13 @@
 </section>
 <footer>
   <div class="container">
-<p>built by hand · no frameworks · web & android · deployed on github pages</p>
+    <a class="footer-wa wa-cta"
+       href="https://wa.me/2348078143655?text=Hi%20Oxford%2C%20I%20saw%20oxmena.com"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.02h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.25-4.35c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.2-8.25 8.2z"/></svg>
+      +234 807 814 3655
+    </a>
+<p>built by hand · no frameworks · web &amp; android · deployed on github pages</p>
   </div>
 </footer>
 <script>
@@ -607,6 +669,21 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+<!-- WhatsApp click → Google Ads conversion -->
+<script>
+  // PASTE YOUR CONVERSION LABEL BETWEEN THE QUOTES, e.g. 'AbC-D_efGhIjKlMn'
+  var CONVERSION_LABEL = '';
+
+  document.querySelectorAll('.wa-cta').forEach(function (el) {
+    el.addEventListener('click', function () {
+      if (!CONVERSION_LABEL) return;
+      gtag('event', 'conversion', {
+        'send_to': 'AW-947799968/' + CONVERSION_LABEL
+      });
+    });
+  });
 </script>
 <script type="application/ld+json">
 {
@@ -617,6 +694,7 @@
   "url": "https://oxmena.com",
   "image": "https://oxmena.com/Facebook-profile2.jpeg",
   "email": "oxmenaservices@gmail.com",
+  "telephone": "+2348078143655",
   "founder": {
     "@type": "Person",
     "name": "Oxford"
