@@ -1,187 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Train like you've got a coach." />
+    <meta
+      property="og:description"
+      content="Get personalised drills for your sport, position and level. 19 sports, from netball to boxing. Free on Android."
+    />
+    <!-- TODO: og:image needs a 1200x630 share image at a real URL -->
+    <meta property="og:url" content="https://oxmena.com/apps/tekkytouch" />
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-947799968"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta
+      name="description"
+      content="No coach? Get personalised drills for your sport, position and level. 19 sports, from netball to boxing. Free on Android."
+    />
 
-  gtag('config', 'AW-947799968');
-</script>
-<title>TekkyTouch — AI Training Drills App | Oxmena</title>
-<link rel="icon" type="image/jpeg" href="../../Facebook-profile2.jpeg">
-<meta name="description" content="TekkyTouch: AI-generated training drills tailored to your sport, position, and level. Track XP, climb ranks, build streaks. Built by Oxmena." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #0a0a0a;
-    --bg-elev: #121212;
-    --border: #1f1f1f;
-    --border-hover: #2a2a2a;
-    --text: #e5e5e5;
-    --text-dim: #888;
-    --text-faint: #555;
-    --accent: #00ff88;
-    --accent-dim: rgba(0, 255, 136, 0.1);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--accent); text-decoration: none; transition: opacity 0.15s; }
-  a:hover { opacity: 0.7; }
-  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-  nav {
-    padding: 24px 0;
-    position: sticky;
-    top: 0;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    z-index: 10;
-  }
-  nav .container { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
-  nav .logo { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-weight: 500; }
-  nav ul { list-style: none; display: flex; gap: 24px; }
-  nav ul a { color: var(--text-dim); }
-  nav ul a:hover { color: var(--text); opacity: 1; }
-  .hero { padding: 90px 0 60px; }
-  .hero .prompt { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-bottom: 20px; }
-  .hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 20px; }
-  .hero h1 .accent { color: var(--accent); }
-  .hero .tagline { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 32px; max-width: 540px; }
-  .play-badge { display: inline-block; }
-  .play-badge img { height: 56px; }
-  .badge-note { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-faint); margin-top: 10px; }
-  section.content { padding: 56px 0; border-top: 1px solid var(--border); scroll-margin-top: 80px; }
-  .section-label { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.85rem; margin-bottom: 8px; }
-  .section-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; letter-spacing: -0.01em; }
-  .features { display: flex; flex-direction: column; gap: 4px; }
-  .feature { padding: 18px 0; border-bottom: 1px solid var(--border); }
-  .feature:last-child { border-bottom: none; }
-  .feature-name { font-weight: 600; font-size: 1.02rem; margin-bottom: 4px; }
-  .feature-name .pro-tag {
-    display: inline-block; margin-left: 8px; padding: 2px 8px;
-    background: var(--accent-dim); color: var(--accent);
-    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border-radius: 4px; vertical-align: middle;
-  }
-  .feature p { color: var(--text-dim); font-size: 0.95rem; }
-    .socials { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
-.social-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
-  color: var(--text-dim); border: 1px solid var(--border); border-radius: 6px;
-  padding: 8px 14px; transition: all 0.2s;
-}
-.social-btn:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
-.social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    <link rel="icon" href="images/icon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>TekkyTouch</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <span class="logo">TekkyTouch</span>
+      <a
+        href="https://play.google.com/store/apps/details?id=com.oxmena.tekkytouch"
+        >Get the app</a
+      >
+    </header>
 
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Train like you've got a coach. Because you do.</h1>
+        <p>
+          Personalised drills for your sport, position and level. 19 sports,
+          from netball to boxing.
+        </p>
 
-  @media (max-width: 600px) {
-    nav ul { gap: 14px; }
-    .hero { padding: 56px 0 40px; }
-    section.content { padding: 44px 0; }
-}
-  
-  .footer-text { font-family: 'JetBrains Mono', monospace; color: var(--accent); }
-  footer { padding: 40px 0 60px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-faint); text-align: center; }
-
-</style>
-</head>
-<body>
-<nav>
-  <div class="container">
-    <span class="logo">~/tekkytouch</span>
-    <ul>
-      <li><a href="#features">features</a></li>
-      <li><a href="../../index.html">oxmena.com</a></li>
-    </ul>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="container">
-    <div class="prompt">$ open tekkytouch</div>
-   <h1>Your <span class="accent">AI coach</span>, in your pocket.</h1>
-<p class="tagline">TekkyTouch generates training drills built around your sport, position, and level — then tracks your XP, ranks, and streaks as you improve. Built by Oxmena.</p>
-
-<a class="play-badge" href="https://play.google.com/store/apps/details?id=com.oxmena.tekkytouch" target="_blank" rel="noopener">
-      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
-    </a>
-
-    <p style="margin-top: 16px;">
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScMEPtwW4NGOZy-SZFLE86LQMLgDE3PudJhV5tX6HB3t9p0vg/viewform?usp=header" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
-    → Answer the survey to help improve app in the future 
-  </a>
-</p>
-    <p class="badge-note">Follow us on our socials</p>
-    <div class="socials">
-  <a class="social-btn" href="https://www.instagram.com/oxmenaservices/" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.02-3.58.07-4.85c.15-3.23 1.67-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-10.85a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg>
-    Instagram
-  </a>
-  <a class="social-btn" href="https://www.facebook.com/profile.php?id=61589749747175" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
-    Facebook
-  </a>
-  <a class="social-btn" href="https://www.youtube.com/@oxmenaservices" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12z"/></svg>
-    YouTube
-  </a>
-</div>
-  </div>
-</header>
-
-<section id="features" class="content">
-  <div class="container">
-    <div class="section-label">01</div>
-    <h2 class="section-title">how it works</h2>
-    <div class="features">
-      <div class="feature">
-        <div class="feature-name">AI Drills</div>
-        <p>Every drill is generated for your position and level, so you're always training something that actually matters to your game.</p>
+        <div class="cta">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.oxmena.tekkytouch"
+            ><img
+              src="images/GetItOnGooglePlay_Badge_Web_color_English.png"
+              alt="Get it on Google Play"
+          /></a>
+          <p>Free to start</p>
+        </div>
       </div>
-      <div class="feature">
-        <div class="feature-name">XP & Ranks</div>
-        <p>Complete drills to earn XP and climb the ranks — Bronze, Silver, Gold, Platinum, Elite, Legend.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-name">Streaks</div>
-        <p>Train daily to build your streak. Consistency is what actually improves your game.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-name">Weekly Training Plans<span class="pro-tag">pro</span></div>
-        <p>A structured 7-day plan covering every skill area, with drills that unlock on the right day.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-name">Drill History<span class="pro-tag">pro</span></div>
-        <p>Look back on the last 30 days of drills you've completed, grouped by date.</p>
-      </div>
-     <div class="feature">
-  <div class="feature-name">Skill Focus<span class="pro-tag">pro</span></div>
-  <p>Lock in on one skill area specific to your sport — like Shooting, Dribbling, or Defending in football — for drills tailored to it.</p>
-</div>
-    </div>
-  </div>
-</section>
 
+      <div class="hero-image">
+        <img
+          src="images/DrillTimeSelect.png"
+          alt="choosing a drill length in the app"
+        />
+      </div>
+    </section>
 
-<footer>
-  <div class="container">
-<p>a <a class="footer-text" href="../../index.html">Oxmena</a> product · <a class="footer-text" href="privacy.html">privacy policy</a></p>  </div>
+    <section class="proof">
+      <h2>Here's what it looks like.</h2>
+      <div class="proof-row">
+        <figure class="proof-image">
+          <img src="images/Onboarding.png" alt="Onboarding screen" />
+          <figcaption>Pick your sport</figcaption>
+        </figure>
+
+        <figure class="proof-image">
+          <img src="images/LiveDrill.png" alt="Drill screen" />
+          <figcaption>Drill, timed</figcaption>
+        </figure>
+
+        <figure class="proof-image">
+          <img src="images/Leaderboard.png" alt="Leaderboard screen" />
+          <figcaption>Earn XP, rank up</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Pick sport and level</li>
+        <li>Get your drills</li>
+        <li>Train and rank up</li>
+      </ol>
+    </section>
+
+    <section class="founder-story">
+      <p class="founder-story-p">
+        I used to go to the park with a basketball and just throw shots at the rim. No plan, no idea what I was actually working on. After ten minutes I'd run out of things to do and go home — so I built this.
+      </p>
+    </section>
+
+    <section class="cta-2">
+      <a
+        href="https://play.google.com/store/apps/details?id=com.oxmena.tekkytouch"
+        ><img
+          src="images/GetItOnGooglePlay_Badge_Web_color_English.png"
+          alt="Get it on Google Play"
+      /></a>
+
+      <div class="socials">
+        <a href="https://www.tiktok.com/@tekkytouch_oxmena" target="_blank">
+          <img src="images/tik-tok.png" alt="TikTok" />
+        </a>
+        <a href="https://www.instagram.com/tekkytouchapp/" target="_blank">
+          <img src="images/instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.youtube.com/@TekkyTouchApp" target="_blank">
+          <img src="images/youtube.png" alt="YouTube" />
+        </a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+  <a href="https://oxmena.com">Built by Oxmena Services</a>
+  <a href="privacy.html">Privacy</a>
 </footer>
-</body>
+
+  </body>
 </html>
